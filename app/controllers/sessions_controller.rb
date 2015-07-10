@@ -3,7 +3,8 @@ get '/login' do
 end
 
 get '/signup' do
-
+  # signup form
+  #post to /users
 end
 
 get '/logout' do #done

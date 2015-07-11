@@ -20,6 +20,7 @@ get '/decks/:id' do
   #lists cards in plain text - with option to edit or play
   @deck = Deck.find_by(params[:id])
   @cards = @deck.cards
+  erb :'decks/show'
 end
 
 # *************************************************************************

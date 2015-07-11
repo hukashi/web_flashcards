@@ -1,8 +1,4 @@
 post '/games' do
-  p "******************"
-  p params[:round]
-  p current_user
-  p "******************"
   @round = Round.new(params[:round])
   if @round.save
     redirect :"/games/#{@round.id}"

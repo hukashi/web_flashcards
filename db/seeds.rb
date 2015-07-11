@@ -20,8 +20,8 @@ end
 
 deck2 = Deck.create(name: "State Capitals")
 
-File.readlines("../web_flashcards/db/state_capitals.txt").each_slice(2) {|question, answer| Card.create(question: question.chomp, answer: answer.chomp, deck_id: 2) }
+File.readlines("../web_flashcards/db/seed_data/state_capitals.txt").each_slice(2) {|question, answer| Card.create(question: question.chomp, answer: answer.chomp, deck_id: 2) }
 
 deck3 = Deck.create(name: "Movie Quotes")
 
-File.readlines("../web_flashcards/db/movie_quotes.txt").each_slice(2) {|question, answer| Card.create(question: question.chomp, answer: answer.chomp, deck_id: 3) }
+File.readlines("../web_flashcards/db/seed_data/movie_quotes.txt").each_slice(2) {|question, answer| Card.create(question: question.chomp, answer: answer.chomp, deck_id: 3) }

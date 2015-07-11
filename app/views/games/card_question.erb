@@ -6,7 +6,7 @@
 
 <div class="card_guess">
 <form action="/games/<%= @round.id %>/cards/<%= @deck_index %>/answer" method="post">
-  <input type="text" name="player_answer" placeholder="Your guess"/>
+  <input type="text" name="player_answer" placeholder="Your guess" required/>
   <input type="hidden" name="guess[round_id]" value="<%= @round.id %>" />
   <input type="hidden" name="guess[card_id]"  value="<%= @card.id %>"/>
   <input type="submit" value="Submit Guess"/>

@@ -1,15 +1,25 @@
-<div class='new_user'>
+<div class='new_user_form'>
   <form action='/users' method='post'>
-    <label>Username</label>
-    <input type='text' name='user[username]'>
-    <label>Password</label>
-    <input type='password' name='user[password]'>
-    <label>First Name</label>
-    <input type='text' name='user[first_name]'>
-    <label>Last Name</label>
-    <input type='text' name='user[last_name]'>
-    <label>Email</label>
-    <input type='email' name='user[email]' placeholder='Email'>
-    <input type='submit' value='Sign me up!'>
+    <div class='form_field'>
+      <label>Username</label>
+      <input type='text' name='user[username]'>
+    </div>
+    <div class='form_field'>
+      <label>Password</label>
+      <input type='password' name='user[password]'>
+    </div>
+    <div class='form_field'>
+      <label>First Name</label>
+      <input type='text' name='user[first_name]'>
+    </div>
+    <div class='form_field'>
+      <label>Last Name</label>
+      <input type='text' name='user[last_name]'>
+    </div>
+    <div class='form_field'>
+      <label>Email</label>
+      <input type='email' name='user[email]' placeholder='Email'>
+    </div>
+      <input type='submit' value='Sign me up!'>
   </form>
 </div>

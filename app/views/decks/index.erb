@@ -1,3 +1,8 @@
 <% @decks.each do |deck| %>
-  <div class="deck_name"><%= deck.name %></div>
+  <div class="deck_name"><a href="/decks/<%= deck.id %>"><%= deck.name %></a></div>
+  <form action="/games" method="post">
+    <input type="hidden" name="round[deck_id]" value="<%= deck.id %>">
+    <input type="hidden" name="round[player_id]" value="<%= current_user.id %>">
+    <input type="submit" value="Let's play!">
+  </form>
 <% end %>

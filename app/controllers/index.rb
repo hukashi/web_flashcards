@@ -1,4 +1,8 @@
 get '/' do
- #if logged in index redirects to profile page else log in page
+  if session[:user_id]
+    redirect '/user/#{session[:user_id]}'
+  else
+    erb :index 
+  end
 end
 

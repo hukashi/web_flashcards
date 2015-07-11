@@ -1,8 +1,8 @@
 get '/' do
-  if session[:user_id]
-    redirect '/user/#{session[:user_id]}'
+  if current_user
+    redirect "/users/#{session[:user_id]}"
   else
-    erb :index 
+    erb :index
   end
 end
 

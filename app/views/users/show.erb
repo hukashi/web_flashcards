@@ -1,5 +1,5 @@
 <div class="container">
-  <header><h4><%= @user.first_name %>'s profile </h4></header>
+  <header><h4><%= @user.first_name %>'s profile</h4> <a href="/users/<%= current_user.id %>/edit"><img id="settings" src="https://d30y9cdsu7xlg0.cloudfront.net/png/20344-200.png"/></a></header>
   <table>
      <%= erb :_stats, :layout => false %>
   </table>

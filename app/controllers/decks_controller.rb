@@ -4,10 +4,10 @@ get '/decks' do
   erb :'/decks/index'
 end
 
-get '/decks/new' do
-  # -logged-in user sees new deck form
-  erb :'decks/new'
-end
+# get '/decks/new' do
+#   # -logged-in user sees new deck form
+#   erb :'decks/new'
+# end
 
 post '/decks' do
   #create deck and cards, redirects to deck/:id
@@ -20,6 +20,7 @@ get '/decks/:id' do
   #lists cards in plain text - with option to edit or play
   @deck = Deck.find_by(params[:id])
   @cards = @deck.cards
+  erb :'decks/show'
 end
 
 # *************************************************************************

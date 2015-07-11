@@ -27,10 +27,10 @@
   <header>
     <h1 class='logo'>Mind your beeswax Flashcards</h1>
       <% if current_user %>
-        <button><a href='/users/#{session[:user_id]}'>Profile</a></button>
+        <button><a href='/users/<%= session[:user_id] %>'>Profile</a></button>
         <button><a href='/logout'>Logout</a></button>
       <% else %>
-        <button><a href='/signup'>Sign up!</a>/<button>
+        <button><a href='/signup'>Sign up!</a></button>
       <% end %>
 </header>
   <%= yield %>

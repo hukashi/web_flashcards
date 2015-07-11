@@ -5,7 +5,7 @@ BEST_TEAM_EVER = [
     ["Geovanna", "Rodriguez", "grod@dbc.com", "grod", "bubbles"]]
 
 
-BEST_TEAM_EVER.each { |person| User.create(first_name: person[0], last_name: person[1], email: person[2], username: person[3], password_hash: person[4]) }
+BEST_TEAM_EVER.each { |person| User.create(first_name: person[0], last_name: person[1], email: person[2], username: person[3], password: person[4]) }
 
 
 deck1 = Deck.create(name: "Cool People")

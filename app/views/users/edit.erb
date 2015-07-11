@@ -1,0 +1,21 @@
+<div class="container">
+  <p>Manage Your Account</p>
+  <form action="/users/<%= current_user.id%>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <label for="user[first_name]">First Name:</label></br>
+    <input type="text" name="user[first_name]" value="<%= current_user.first_name %>"></br></br>
+    <label for="user[last_name]">Last Name:</label></br>
+    <input type="text" name="user[last_name]" value="<%= current_user.last_name %>"></br></br>
+    <label for="user[email]">Email:</label></br>
+    <input type="text" name="user[email]" value="<%= current_user.email %>"></br></br>
+    <label for="user[username]">Username:</label></br>
+    <input type="text" name="user[username]" value="<%= current_user.username %>"></br></br>
+    <label for="user[password]">Password:</label></br>
+    <input type="password" name="user[password]" value="<%= current_user.password_hash%>"></br></br>
+    <input type="submit" value="update account">
+  </form>
+  </br>
+  <form action="/users/<%= current_user.id%>" method="get">
+      <input type="submit" value="cancel">
+  </form>
+</div>

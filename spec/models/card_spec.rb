@@ -42,4 +42,7 @@ describe "Card" do
   it "has many guesses" do
     expect(@card.guesses.first).to eq @guess
   end
+
+  it { should validate_presence_of(:answer) }
+  it { should validate_presence_of(:question) }
 end

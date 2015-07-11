@@ -10,7 +10,7 @@ end
 get '/games/:id' do
   @round = Round.find(params[:id])
   if @round.completed == true
-    redirect :"games/#{params[:id]}/stats"
+    erb :"games/stats"
   elsif
     @round.guesses.count == 0
     redirect :"/games/#{@round.id}/cards/1"
@@ -19,11 +19,6 @@ get '/games/:id' do
     deck_index = @round.cards.index(last_played)
     redirect :"/games/#{@round.id}/cards/#{deck_index.to_i + 1}"
    end
-end
-
-get '/games/:id/stats' do
-   @round = Round.find(params[:id])
-  erb :'games/stats'
 end
 
 get '/games/:round_id/cards/:index'  do

@@ -1,0 +1,31 @@
+<% if @user == current_user %>
+  <th colspan="5"><%= @user.first_name %>'s Played Decks</th>
+    <tr>
+      <th>date</th>
+      <th>deck</th>
+      <th># correct</th>
+      <th># incorrect</th>
+      <th>results</th>
+    </tr>
+    <% @rounds.each do |round| %>
+      <tr>
+        <td><%= round.updated_at.strftime("%B %d %Y")  %></td>
+        <td><a href="/decks/<%= round.deck_id %>"><%= round.deck.name %></a></td>
+        <td><%= round.correct_guesses %></td>
+        <td><%= round.incorrect_guesses %></td>
+        <td><a href="/games/<%= round.id %>">View</a></td>
+      </tr>
+      <% end %>
+<% else %>
+  <th colspan="2"><%= @user.first_name %>'s Played Decks</th>
+    <tr>
+      <th>date</th>
+      <th>deck</th>
+    </tr>
+    <% @rounds.each do |round| %>
+    <tr>
+      <td><%= round.updated_at.strftime("%B %d %Y")  %></td>
+      <td><a href="/decks/<%= round.deck_id %>"><%= round.deck.name %></a></td>
+    </tr>
+    <% end %>
+<% end %>

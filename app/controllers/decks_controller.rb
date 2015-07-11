@@ -1,5 +1,4 @@
 get '/decks' do
-  #lists all created decks
   @decks = Deck.all
   erb :'/decks/index'
 end
@@ -17,7 +16,6 @@ end
 # end
 
 get '/decks/:id' do
-  #lists cards in plain text - with option to edit or play
   @deck = Deck.find(params[:id])
   @cards = @deck.cards
   erb :'decks/show'

@@ -1,13 +1,22 @@
 get '/login' do
- #make sure to use user.authenticate
+  erb :'/sessions/login'
+end
+
+post '/login' do
+  user = User.find_by_username(params[:username])
+  if user.password == params[:password]
+    session[:user_id] = user.id
+    redirect "/users/#{user.id}"
+  else
+    redirect '/login'
+  end
 end
 
 get '/signup' do
-  # signup form
-  #post to /users
+  erb :'/sessions/signup'
 end
 
-get '/logout' do #done
+get '/logout' do
   session[:user_id] = nil
   redirect '/'
 end

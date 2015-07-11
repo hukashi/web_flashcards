@@ -43,7 +43,7 @@ post '/games/:round_id/cards/:id/answer' do
   @guess = Guess.new(params[:guess])
   @round = Round.find(params[:round_id])
   @card = @round.cards[params[:id].to_i - 1]
-  if params[:player_answer] == @card.answer
+  if params[:player_answer].downcase == @card.answer.downcase
     @guess.correct = true
   else
     @guess.correct = false

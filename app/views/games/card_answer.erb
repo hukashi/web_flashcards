@@ -8,9 +8,9 @@
   <% if @guess.correct %>
     That's correct!
   <% else %>
-    Sorry that's incorrect. The correct answer is: 
+    Sorry that's incorrect. The correct answer is:
   <% end %>
-  <span class="correct_answer"><%= @card.answer %></span>
+  <span class="correct_answer"><%= h @card.answer %></span>
 </div>
 
 <div class="deck_navigation">
@@ -18,5 +18,5 @@
     <a href="/games/<%= @round.id %>"><button>View game stats</button></a>
   <% else %>
     <a href="/games/<%= @round.id %>/cards/<%= (@deck_index.to_i + 1) %>"><button>Next card</button></a>
-  <% end %> 
+  <% end %>
 </div>

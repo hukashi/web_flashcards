@@ -8,23 +8,25 @@ post '/games' do
 end
 
 get '/games/:id' do
-  @round = Round.find(:id)
+  @round = Round.find(params[:id])
   if @round.completed == true
     erb :'game/stats'
   elsif
-    round.guesses.count = 0
-    redirect :"/game/stats/#{@round.id}/cards/1"
+    @round.guesses.count == 0
+    redirect :"/games/#{@round.id}/cards/1"
   else
-    last_played = round.guesses.last.card_id
+    last_played = @round.guesses.last.card_id
     deck_index = @round.cards.index(last_played)
     redirect :"/game/stats/#{@round.id}/cards/#{deck_index + 1}"
    end
 end
 
 get '/games/:round_id/cards/:index'  do
+  @deck_index = params[:index].to_i - 1
   @round = Round.find(params[:round_id])
-  @card = @round.card[params[:index] - 1]
-  erb :'games/card_question'
+  @deck = @round.deck
+  @card = @round.cards[@deck_index]
+    erb :'games/card_question'
 end
 
 post '/games/:round_id/cards/:index' do

@@ -1,4 +1,8 @@
 post '/games' do
+  p "******************"
+  p params[:round]
+  p current_user
+  p "******************"
   @round = Round.new(params[:round])
   if @round.save
     redirect :"/games/#{@round.id}"
@@ -43,7 +47,7 @@ post '/games/:round_id/cards/:id/answer' do
   @guess = Guess.new(params[:guess])
   @round = Round.find(params[:round_id])
   @card = @round.cards[params[:id].to_i - 1]
-  if params[:player_answer] == @card.answer 
+  if params[:player_answer] == @card.answer
     @guess.correct = true
   else
     @guess.correct = false

@@ -3,7 +3,7 @@ get '/users' do
 end
 
 post '/users' do
-  user = User.new(params)
+  user = User.new(params[:user])
   user.save!
   if user
     session[:user_id] = user.id

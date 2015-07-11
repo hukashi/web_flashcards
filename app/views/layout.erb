@@ -19,17 +19,20 @@
 
   <title></title>
 </head>
+
+
+
 <body>
 <div id="content">
   <header>
-    <a href="/"><img src="/img/zenchinese.png" class="logo"></a>
-    <div id="login-toolbar">
+    <h1 class='logo'>Mind your beeswax Flashcards</h1>
       <% if current_user %>
-        <a href="/logout">Logout</a>
+        <button><a href='/users/<%= session[:user_id] %>'>Profile</a></button>
+        <button><a href='/logout'>Logout</a></button>
       <% else %>
-        <a href="/login">Login</a>
+        <button><a href='/signup'>Sign up!</a></button>
       <% end %>
-  </header>
+</header>
   <%= yield %>
 </div>
 </body>

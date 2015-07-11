@@ -1,16 +1,32 @@
+get '/users' do
+  redirect "/users/#{current_user.id}"
+end
 
 post '/users' do
-  #creates new user , redirects to /users/:id
+  user = User.new(params[:user])
+  user.save!
+  if user
+    session[:user_id] = user.id
+    redirect "/users/#{current_user.id}"
+  else
+    redirect '/signup'
+  end
 end
 
 get '/users/:id' do
-  #view user profile
+  @user = User.find_by(id: params[:id])
+  @rounds = @user.rounds
+  if @user == nil
+    @user = current_user
+  end
+  erb :'/users/show'
 end
 
 get '/users/:id/edit' do
-  # edit account info
+  erb :'/users/edit'
 end
 
 put '/users/:id' do
-  # updates user info
+  current_user.update_attributes(params[:user])
+  redirect "/users/#{current_user.id}/edit"
 end

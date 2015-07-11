@@ -8,6 +8,7 @@ post '/games' do
 end
 
 get '/games/:id' do
+  require_logged_in
   @round = Round.find(params[:id])
   if @round.completed == true
     erb :"games/stats"
@@ -22,6 +23,7 @@ get '/games/:id' do
 end
 
 get '/games/:round_id/cards/:index' do
+  require_logged_in
   @deck_index = params[:index]
   @round = Round.find(params[:round_id])
   @deck = @round.deck

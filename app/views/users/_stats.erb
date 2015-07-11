@@ -11,9 +11,9 @@
       <tr>
         <td><%= round.updated_at.strftime("%B %d %Y")  %></td>
         <td><a href="/decks/<%= round.deck_id %>"><%= round.deck.name %></a></td>
-        <td><%= round.guesses.where(correct: true).count %></td>
-        <td><%= round.guesses.where(correct: false).count %></td>
-        <td><a href="/game/<%= round.id %>">View</a></td>
+        <td><%= round.correct_guesses %></td>
+        <td><%= round.incorrect_guesses %></td>
+        <td><a href="/games/<%= round.id %>">View</a></td>
       </tr>
       <% end %>
 <% else %>

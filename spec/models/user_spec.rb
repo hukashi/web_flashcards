@@ -1,40 +1,22 @@
 require_relative "../spec_helper"
-describe "User" do
-  before(:all) do
-    DatabaseCleaner.start
 
-    @joe = User.create!(first_name: "Joe",
-                         last_name: "Smith",
-                         email: "test@example.com",
-                         username: "first_player",
-                         password: "peanut")
-
-
-    @deck = Deck.create(name: "Cool People", creator_id: @joe.id)
-
-    cards = [
-      ["On which side of the card do we find the question?", "front"],
-      ["On which side of the card do we find the answer?", "back"]
-    ]
-
-    cards.each do |card|
-      Card.create(question: card[0], answer: card[1], deck_id: @deck.id)
-    end
-
-    @cards = Card.all
-
-    @round = Round.create(player_id: @joe.id, deck_id: @deck.id)
+describe User do
+  it do
+    should have_many(:decks).
+      with_foreign_key(:creator_id)
   end
 
-  after(:all) do
-    DatabaseCleaner.clean
+  it do
+    should have_many(:rounds).
+      with_foreign_key(:player_id)
   end
 
-  it "has decks" do
-    expect(@joe.decks.first.name).to eq "Cool People"
-  end
+  it {should validate_presence_of :first_name }
+  it {should validate_presence_of :last_name }
+  it {should validate_presence_of :email }
+  it {should validate_presence_of :password_hash }
+  it {should validate_presence_of :username }
 
-  it "has rounds" do
-    expect(@joe.rounds.count).to eq 1
-  end
+  # it {should validate_uniqueness_of :email }
+  # it {should validate_uniqueness_of :username }
 end

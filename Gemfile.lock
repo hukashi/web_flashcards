@@ -92,7 +92,6 @@ DEPENDENCIES
   factory_girl
   faker
   pg
-  rack-test
   rake
   rspec
   shotgun
